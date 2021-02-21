@@ -1,0 +1,37 @@
+.Header {
+    background-color: #000;
+    color: #fff;
+    padding: 25px 0 28px 0;
+    font-size: 20px;
+}
+.logoBlock {
+    font-size: 24px;
+    font-family: 'SF_UI_Display_Bold';
+}
+.topicBlock {
+    display: flex;
+}
+.topicItem {
+    margin: 5px auto;
+    font-size: 16px;
+}
+.headerLinksWrap {
+    display: flex;
+}
+.linksBlock {
+    margin-left: auto;
+    display: flex;
+}
+.headerLink {
+    margin-left: 40px;
+}
+.headerLink>a {
+    color: #fff;
+}
+.headerLink>a:hover {
+    text-decoration: none;
+    color: #fff;   
+}
+.linkText {
+    margin-left: 12px;
+}
