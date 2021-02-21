@@ -3,15 +3,16 @@ import { Container, Row, Col } from "react-bootstrap";
 import style from "./Header.module.css";
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { PhotosAPI } from '../../api/api';
+import  PhotosAPI  from '../../api';
 import { NavLink, Route } from 'react-router-dom';
 import Favorites from '../Favorites/Favorites';
 import logo from '../../assets/icons/logo.png'
 import favorites from '../../assets/icons/favorites.png'
 import searchHistory from '../../assets/icons/search-history.png'
 import search from '../../assets/icons/search.png'
+import HeaderSearch from './HeaderSearch/HeaderSearch';
 
-const Header = () => {
+const Header = (props) => {
     return <div className={style.Header}>
         <div className="container">
             <div className={style.headerLinksWrap}>
@@ -63,7 +64,7 @@ const Header = () => {
         </div>
         <Container>
             <div>
-               <Header />
+               <HeaderSearch searchFunction={props.searchFunction}/>
             </div>
         </Container>
 

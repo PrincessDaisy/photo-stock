@@ -1,6 +1,6 @@
-import Axios from 'axios'
+import axios from 'axios'
 
-let instanceAPI = Axios.create({
+export let instanceAPI = axios.create({
     baseURL: "https://api.unsplash.com/",
     headers: {
         'Content-Type' : 'application/json',
@@ -8,12 +8,3 @@ let instanceAPI = Axios.create({
         'Authorization' : 'Client-ID 539a243d3ccefd20c8def536a22699cc55608b6e0ce6db506b2be577682ed2ef'
     }
 })
-
-export const PhotosAPI = {
-    getPhotosList(page, query) {
-        return instanceAPI.get('search/photos', {params: {page, query}})
-    },
-    getTopicList(page) {
-        return instanceAPI.get('topics', {params: {page}})
-    }
-}

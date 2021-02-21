@@ -1,0 +1,53 @@
+.dirRow {
+    display: flex;
+}
+.dirCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dirControl {
+    display: flex;
+    margin: 75px auto;
+    justify-content: center;
+}
+.column {
+    margin-right: 20px;
+    cursor: pointer;
+}
+.column > .columnEl:first-child {
+    margin-bottom: 3px;
+}
+.column:hover .columnEl {
+    background-color: #000;
+}
+.columnEl {
+    width: 23px;
+    height: 10px;
+    background-color: #BDBDBD;
+    display: block;
+}
+.row {
+    cursor: pointer;
+}
+.row:hover .rowEl{
+    background-color: #000;
+}
+.rowTop {
+    display: flex;
+    margin-bottom: 3px;
+}
+.rowTop > .rowEl:first-child {
+    margin-right: 3px;
+}
+.rowBot {
+    display: flex;
+}
+.rowBot > .rowEl:first-child {
+    margin-right: 3px;
+}
+.rowEl {
+    width: 10px;
+height: 10px;
+background-color: #BDBDBD;
+}
