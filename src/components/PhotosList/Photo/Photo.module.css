@@ -72,3 +72,8 @@
 .pd5 {
     padding: 5%;
 }
+.toFavorites {
+    border: none;
+    outline: none;
+    background: none;
+}
