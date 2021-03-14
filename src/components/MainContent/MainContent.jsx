@@ -1,6 +1,8 @@
-import { React, useState } from 'react';
+import {
+  React, useState,
+} from 'react';
 import { Route } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 import Favorites from '../Favorites/Favorites';
 import Header from '../Header/Header';
 import PhotosList from '../PhotosList/PhotosList';
@@ -9,18 +11,31 @@ import Preloader from '../Preloader/Preloader';
 import PhotoPage from '../PhotoPage/PhotoPage';
 
 const MainContent = () => {
-  const [searchVal, setSearchVal] = useState('random');
+  localStorage.setItem('Favorites', []);
 
-  const currentPage = 1;
+  const [searchVal, setSearchVal] = useState('random');
 
   const fetchPhotosList = async (value, page) => {
     const { data: { results } } = await PhotosAPI.getPhotosList(value, page);
     return results;
   };
 
-  const { data: photosListData, isSuccess: isSuccessPhotosListFetch, isLoading } = useQuery(['photosList', searchVal, currentPage], () => fetchPhotosList(searchVal, currentPage));
-
-  localStorage.setItem('Favorites', []);
+  const {
+    data: photosListData,
+    isSuccess: isSuccessPhotosListFetch,
+    isLoading,
+    fetchNextPage,
+  } = useInfiniteQuery(['projects', searchVal], ({ pageParam = 1 }) => fetchPhotosList(searchVal, pageParam), {
+    getNextPageParam: (lastPage, pages) => pages.length + 1,
+  });
+  const handleScroll = () => {
+    if (window.innerHeight
+      + document.documentElement.scrollTop === document.documentElement.offsetHeight
+    ) {
+      fetchNextPage();
+    }
+  };
+  window.addEventListener('scroll', handleScroll);
 
   return (
     <>
@@ -29,7 +44,8 @@ const MainContent = () => {
         <Favorites />
       </Route>
       <Route path="/home">
-        {!!isSuccessPhotosListFetch && <PhotosList photosList={photosListData} />}
+        {!!isSuccessPhotosListFetch
+          && <PhotosList photosList={photosListData} />}
         {!!isLoading && <Preloader />}
       </Route>
       <Route path="/photo-page/:id" component={PhotoPage} />

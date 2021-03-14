@@ -11,7 +11,10 @@ const PhotosList = (props) => {
 //   const changeDirCol = () => {
 //     setDir(style.dirCol);
 //   };
+
   const { photosList } = props;
+
+  const photosArray = photosList.pages.flat();
   // console.log(props);
   // console.log(photosList);
   return (
@@ -35,7 +38,7 @@ const PhotosList = (props) => {
       <div className={style.dirRow}>
         <div className="col-md-4 p-0">
           {!!photosList
-                    && photosList.map((item, index) => {
+                    && photosArray.map((item, index) => {
                       if (index % 3 === 2) {
                         return <Photo item={item} />;
                       }
@@ -44,7 +47,7 @@ const PhotosList = (props) => {
         </div>
         <div className="col-md-4 p-0">
           {!!photosList
-                    && photosList.map((item, index) => {
+                    && photosArray.map((item, index) => {
                       if (index % 3 === 1) {
                         return <Photo item={item} />;
                       }
@@ -53,7 +56,7 @@ const PhotosList = (props) => {
         </div>
         <div className="col-md-4 p-0">
           {!!photosList
-                    && photosList.map((item, index) => {
+                    && photosArray.map((item, index) => {
                       if (index % 3 === 0) {
                         return <Photo item={item} />;
                       }
