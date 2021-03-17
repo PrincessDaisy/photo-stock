@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import style from './Header.module.css';
 import logo from '../../assets/icons/logo.png';
@@ -10,6 +9,7 @@ import searchHistory from '../../assets/icons/search-history.png';
 import search from '../../assets/icons/search.png';
 import HeaderSearch from './HeaderSearch/HeaderSearch';
 import PhotosAPI from '../../api';
+import HeaderLinkItem from './HeaderLinkItem/HeaderLinkItem';
 
 const Header = (props) => {
   const { setSearchVal } = props;
@@ -21,53 +21,44 @@ const Header = (props) => {
 
   const { data: topicsListData, isSuccess: isSuccessTopicsListFetch } = useQuery(['topicsList'], () => fetchTopics());
 
+  const linksDataArr = [
+    {
+      link: '/home',
+      imgSrc: search,
+      text: 'Поиск',
+      key: 'home',
+    },
+    {
+      link: '/favorites',
+      imgSrc: favorites,
+      text: 'Избранное',
+      key: 'favorites',
+    },
+    {
+      link: '/history',
+      imgSrc: searchHistory,
+      text: 'История поиска',
+      key: 'history',
+    },
+  ];
+
   return (
     <div className={style.Header}>
       <div className="container">
         <div className={style.headerLinksWrap}>
           <div className={style.logoBlock}>
-            <div className={style.headerLink}>
-              <NavLink to="/home">
-                <span className={style.linkIcon}>
-                  <img src={logo} alt="" />
-                </span>
-                <span className={style.linkText}>
-                  ImageStock
-                </span>
-              </NavLink>
-            </div>
+            <HeaderLinkItem
+              data={{
+                link: '/home',
+                imgSrc: logo,
+                text: 'ImageStock',
+                key: 'logo',
+              }}
+              key="logo"
+            />
           </div>
           <div className={style.linksBlock}>
-            <div className={style.headerLink}>
-              <NavLink to="/home">
-                <span className={style.linkIcon}>
-                  <img src={search} alt="" />
-                </span>
-                <span className={style.linkText}>
-                  Поиск
-                </span>
-              </NavLink>
-            </div>
-            <div className={style.headerLink}>
-              <NavLink to="/favorites">
-                <span className={style.linkIcon}>
-                  <img src={favorites} alt="" />
-                </span>
-                <span className={style.linkText}>
-                  Избранное
-                </span>
-              </NavLink>
-            </div>
-            <div className={style.headerLink}>
-              <NavLink to="/history">
-                <span className={style.linkIcon}>
-                  <img src={searchHistory} alt="" />
-                </span>
-                <span className={style.linkText}>
-                  История поиска
-                </span>
-              </NavLink>
-            </div>
+            {linksDataArr.map((item) => <HeaderLinkItem data={item} key={item.key} />)}
           </div>
         </div>
       </div>

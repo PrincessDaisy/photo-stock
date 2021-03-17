@@ -11,7 +11,9 @@ import Preloader from '../Preloader/Preloader';
 import PhotoPage from '../PhotoPage/PhotoPage';
 
 const MainContent = () => {
-  localStorage.setItem('Favorites', []);
+  if (!localStorage.getItem('Favorites')) {
+    localStorage.setItem('Favorites', []);
+  }
 
   const [searchVal, setSearchVal] = useState('random');
 
@@ -45,7 +47,7 @@ const MainContent = () => {
       </Route>
       <Route path="/home">
         {!!isSuccessPhotosListFetch
-          && <PhotosList photosList={photosListData} />}
+          && <PhotosList photosList={photosListData.pages.flat()} />}
         {!!isLoading && <Preloader />}
       </Route>
       <Route path="/photo-page/:id" component={PhotoPage} />

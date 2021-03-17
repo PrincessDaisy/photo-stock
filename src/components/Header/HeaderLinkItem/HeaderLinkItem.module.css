@@ -1,0 +1,13 @@
+.headerLink {
+    margin-left: 40px;
+}
+.headerLink>a {
+    color: #fff;
+}
+.headerLink>a:hover {
+    text-decoration: none;
+    color: #fff;   
+}
+.linkText {
+    margin-left: 12px;
+}

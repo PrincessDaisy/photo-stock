@@ -8,6 +8,9 @@
     font-size: 24px;
     font-family: 'SF_UI_Display_Bold';
 }
+.logoBlock>div {
+    margin-left: 0;
+}
 .topicBlock {
     display: flex;
 }
@@ -21,17 +24,4 @@
 .linksBlock {
     margin-left: auto;
     display: flex;
-}
-.headerLink {
-    margin-left: 40px;
-}
-.headerLink>a {
-    color: #fff;
-}
-.headerLink>a:hover {
-    text-decoration: none;
-    color: #fff;   
-}
-.linkText {
-    margin-left: 12px;
 }

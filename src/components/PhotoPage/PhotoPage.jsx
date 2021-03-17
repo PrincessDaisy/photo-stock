@@ -35,7 +35,7 @@ const PhotoPage = (props) => {
     },
   );
 
-  if (photoFetchSuccess) {
+  if (photoFetchSuccess && collectionsFetchSuccess) {
     return (
       <>
         <form action="" />

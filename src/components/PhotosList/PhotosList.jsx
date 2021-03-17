@@ -12,11 +12,8 @@ const PhotosList = (props) => {
 //     setDir(style.dirCol);
 //   };
 
-  const { photosList } = props;
+  const { photosList: photosArray } = props;
 
-  const photosArray = photosList.pages.flat();
-  // console.log(props);
-  // console.log(photosList);
   return (
     <div className="container">
       {/* <div className={style.dirControl}>
@@ -37,31 +34,31 @@ const PhotosList = (props) => {
       </div> */}
       <div className={style.dirRow}>
         <div className="col-md-4 p-0">
-          {!!photosList
-                    && photosArray.map((item, index) => {
-                      if (index % 3 === 2) {
-                        return <Photo item={item} />;
-                      }
-                      return '';
-                    })}
+          {!!photosArray
+              && photosArray.map((item, index) => {
+                if (index % 3 === 2) {
+                  return <Photo item={item} />;
+                }
+                return '';
+              })}
         </div>
         <div className="col-md-4 p-0">
-          {!!photosList
-                    && photosArray.map((item, index) => {
-                      if (index % 3 === 1) {
-                        return <Photo item={item} />;
-                      }
-                      return '';
-                    })}
+          {!!photosArray
+            && photosArray.map((item, index) => {
+              if (index % 3 === 1) {
+                return <Photo item={item} />;
+              }
+              return '';
+            })}
         </div>
         <div className="col-md-4 p-0">
-          {!!photosList
-                    && photosArray.map((item, index) => {
-                      if (index % 3 === 0) {
-                        return <Photo item={item} />;
-                      }
-                      return '';
-                    })}
+          {!!photosArray
+            && photosArray.map((item, index) => {
+              if (index % 3 === 0) {
+                return <Photo item={item} />;
+              }
+              return '';
+            })}
         </div>
       </div>
     </div>
