@@ -5,14 +5,14 @@ import { NavLink } from 'react-router-dom';
 import style from './HeaderLinkItem.module.css';
 
 const HeaderLinkItem = (props) => {
-  const { data: { link, imgSrc, text } } = props;
+  const { data: { link, imgSrc, text }, className } = props;
   return (
     <div className={style.headerLink}>
       <NavLink to={link}>
         <span className={style.linkIcon}>
           <img src={imgSrc} alt="" />
         </span>
-        <span className={style.linkText}>
+        <span className={`${style.linkText} ${className}`}>
           {text}
         </span>
       </NavLink>

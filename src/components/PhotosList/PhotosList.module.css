@@ -11,43 +11,19 @@
     margin: 75px auto;
     justify-content: center;
 }
-.column {
+.dirControl > .changeDir {
     margin-right: 20px;
+}
+.icon {
     cursor: pointer;
 }
-.column > .columnEl:first-child {
-    margin-bottom: 3px;
+.icon:hover rect {
+    fill: #000;
 }
-.column:hover .columnEl {
-    background-color: #000;
-}
-.columnEl {
-    width: 23px;
-    height: 10px;
-    background-color: #BDBDBD;
-    display: block;
-}
-.row {
-    cursor: pointer;
-}
-.row:hover .rowEl{
-    background-color: #000;
-}
-.rowTop {
-    display: flex;
-    margin-bottom: 3px;
-}
-.rowTop > .rowEl:first-child {
-    margin-right: 3px;
-}
-.rowBot {
-    display: flex;
-}
-.rowBot > .rowEl:first-child {
-    margin-right: 3px;
-}
-.rowEl {
-    width: 10px;
-height: 10px;
-background-color: #BDBDBD;
+.changeDir {
+    background-color: none;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
 }

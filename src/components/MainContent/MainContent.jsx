@@ -32,7 +32,7 @@ const MainContent = () => {
   });
   const handleScroll = () => {
     if (window.innerHeight
-      + document.documentElement.scrollTop === document.documentElement.offsetHeight
+        + document.documentElement.scrollTop === document.documentElement.offsetHeight
     ) {
       fetchNextPage();
     }

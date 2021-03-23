@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import PhotosAPI from '../../api';
 import style from './PhotoPage.module.css';
@@ -8,10 +8,12 @@ import donwload from '../../assets/icons/download_photo_page.png';
 import PhotosList from '../PhotosList/PhotosList';
 
 const PhotoPage = (props) => {
+  const [className, setClassName] = useState(style.imgRegular);
+
   const { match: { params: { id: itemId } } } = props;
 
-  const fetchPhoto = async () => {
-    const { data } = await PhotosAPI.getPhoto(itemId);
+  const fetchPhoto = async (id) => {
+    const { data } = await PhotosAPI.getPhoto(id);
     return data;
   };
   const fetchCollection = async (item) => {
@@ -19,19 +21,18 @@ const PhotoPage = (props) => {
     return data;
   };
 
-  const { data: photoData, isSuccess: photoFetchSuccess } = useQuery(['photo'], () => fetchPhoto());
-
-  let firstCollectionId = null;
-
-  if (photoFetchSuccess) {
-    firstCollectionId = photoData.related_collections.results[0].id;
-  }
+  const { data: photoData, isSuccess: photoFetchSuccess } = useQuery(['photo'], () => fetchPhoto(itemId));
 
   const { data: collectionsListData, isSuccess: collectionsFetchSuccess } = useQuery(
-    ['collectionsList', firstCollectionId],
-    () => fetchCollection(firstCollectionId),
+    ['collectionsList'],
+    () => fetchCollection(photoData.related_collections.results[0].id),
     {
       enabled: !!photoData,
+      onSuccess: () => {
+        if (photoData.width < photoData.height) {
+          setClassName(style.imgScaled);
+        }
+      },
     },
   );
 
@@ -39,7 +40,7 @@ const PhotoPage = (props) => {
     return (
       <>
         <form action="" />
-        <div className="container">
+        <div className="container p-0">
           <div className={style.photoInfo}>
             <div className={style.infoTop}>
               <div className={style.userInfo}>
@@ -82,8 +83,10 @@ const PhotoPage = (props) => {
               </div>
             </div>
             <div className={style.imgBlock}>
-              <img src={photoData.urls.regular} alt="" />
+              <img src={photoData.urls.regular} alt="" className={className} />
             </div>
+            {!!photoData.tags.length > 0
+            && (
             <div className={style.photoTags}>
               <div className={style.tagsTop}>
                 <h3>
@@ -103,12 +106,17 @@ const PhotoPage = (props) => {
                 })}
               </div>
             </div>
+            )}
             <div className={style.imgBackground}>
               <img src={photoData.urls.regular} alt="" />
               <div className={style.imgShadow}>&nbsp;</div>
             </div>
           </div>
-          <div>
+          <div className={style.relatedCols}>
+            <div className={style.relatedColsTop}>
+              <h3 className={style.relatedColsHeading}>Похожие фотографии</h3>
+              <button type="button">show more</button>
+            </div>
             {!!collectionsFetchSuccess && <PhotosList photosList={collectionsListData} /> }
           </div>
         </div>

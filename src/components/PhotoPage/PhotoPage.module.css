@@ -29,13 +29,6 @@
     text-align: left;
     color: #fff;
 }
-.userLink a{
-    color: #fff;
-}
-.userLink a:hover {
-    text-decoration: none;
-    color: #fff;
-}
 .userName {
     color: #fff;
 }
@@ -49,9 +42,14 @@
     border-radius: 8px;
     overflow: hidden;
     margin: 40px 0;
+    background-color: rgba(0,0,0,.6);
 }
-.imgBlock > img {
+.imgRegular {
     width: 100%;
+}
+.imgScaled{
+    width: 40%;
+    border-radius: 8px;
 }
 .imgBackground {
     position: absolute;
@@ -103,6 +101,9 @@
     background: rgba(40, 36, 22, 0.25);
     z-index: 2;
 }
+.photoTags {
+    margin-top: 10px;
+}
 .tagsTop > h3{
     font-size: 24px;
     color: #fff;
@@ -123,4 +124,16 @@
 }
 .tagItem:last-child {
     margin-right: 0;
+}
+.relatedCols {
+    margin-top: 80px;
+}
+.relatedColsTop {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+.relatedColsHeading {
+    font-size: 36px;
+    color: #000;
 }

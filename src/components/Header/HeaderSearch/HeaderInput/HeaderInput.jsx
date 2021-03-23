@@ -9,7 +9,7 @@ const HeaderInput = (props) => {
     <div className={style.box}>
       <div className={style.inputСontainer}>
         <h2>Поиск</h2>
-        <Field type="text" required="" id="searchInput" name={name} />
+        <Field type="text" required="" id="searchInput" name={name} autocomplete="off" />
       </div>
     </div>
   );

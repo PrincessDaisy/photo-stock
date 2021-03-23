@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import { useQuery } from 'react-query';
+import { withRouter } from 'react-router';
 import style from './Header.module.css';
 import logo from '../../assets/icons/logo.png';
 import favorites from '../../assets/icons/favorites.png';
@@ -10,9 +10,10 @@ import search from '../../assets/icons/search.png';
 import HeaderSearch from './HeaderSearch/HeaderSearch';
 import PhotosAPI from '../../api';
 import HeaderLinkItem from './HeaderLinkItem/HeaderLinkItem';
+import HeaderTopic from './HeaderTopic/HeaderTopic';
 
-const Header = (props) => {
-  const { setSearchVal } = props;
+const Header = withRouter((props) => {
+  const { setSearchVal, location } = props;
 
   const fetchTopics = async () => {
     const { data } = await PhotosAPI.getTopicList();
@@ -44,7 +45,7 @@ const Header = (props) => {
 
   return (
     <div className={style.Header}>
-      <div className="container">
+      <div className="container p-0">
         <div className={style.headerLinksWrap}>
           <div className={style.logoBlock}>
             <HeaderLinkItem
@@ -55,6 +56,7 @@ const Header = (props) => {
                 key: 'logo',
               }}
               key="logo"
+              className={style.logo}
             />
           </div>
           <div className={style.linksBlock}>
@@ -62,18 +64,24 @@ const Header = (props) => {
           </div>
         </div>
       </div>
-      <Container>
-        <div>
-          <HeaderSearch setSearchVal={setSearchVal} />
-        </div>
-      </Container>
-      <Container>
-        <div className="col">
-          {!!isSuccessTopicsListFetch && topicsListData.map((item) => ` ${item.title} `)}
-        </div>
-      </Container>
+      {location.pathname === '/home'
+        && (
+        <>
+          <div className="container">
+            <div>
+              <HeaderSearch setSearchVal={setSearchVal} />
+            </div>
+          </div>
+          <div className="container">
+            <div className={style.topicWrapper}>
+              {!!isSuccessTopicsListFetch
+              && topicsListData.map((item) => <HeaderTopic title={item.title} key={item.id} />)}
+            </div>
+          </div>
+        </>
+        )}
     </div>
   );
-};
+});
 
 export default Header;

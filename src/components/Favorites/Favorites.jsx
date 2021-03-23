@@ -20,7 +20,6 @@ const Favorites = () => {
     });
     return fetchedData;
   };
-  console.log(getListFromFavorites(favoritesList));
   return (
     <>
       <PhotosList photosList={getListFromFavorites(favoritesList)} />

@@ -1,5 +1,6 @@
 .imgWrap {
-    margin: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     position: relative;
     overflow: hidden;
     border-radius: 5px;
@@ -76,4 +77,10 @@
     border: none;
     outline: none;
     background: none;
+}
+.icon {
+    transition: .7s;
+}
+.icon:hover {
+    transform: scale(1.2);
 }

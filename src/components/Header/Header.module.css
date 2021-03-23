@@ -6,7 +6,7 @@
 }
 .logoBlock {
     font-size: 24px;
-    font-family: 'SF_UI_Display_Bold';
+    font-family: 'SFUIDisplayBold';
 }
 .logoBlock>div {
     margin-left: 0;
@@ -24,4 +24,22 @@
 .linksBlock {
     margin-left: auto;
     display: flex;
+}
+.topicWrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.topicWrapper:after {
+    content: '';
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 1) 80%);
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+    width: 50%;
+    z-index: 10;
+}
+.logo {
+    font-family: 'SFUIDisplayBold';
 }

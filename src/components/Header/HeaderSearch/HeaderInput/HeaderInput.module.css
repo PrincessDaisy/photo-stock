@@ -1,10 +1,8 @@
 .box {
-    /* position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); */
     background-color: rgba(0, 0, 0, 0.89);
     border-radius: 3px;
+    font-family: 'SFUIDisplayLight';
+    margin-top: 40px;
 }
 
 .inputСontainer {
@@ -13,7 +11,7 @@
     padding-top: 70px;
 }
 
-.inputСontainer label {
+.inputСontainer h2 {
     position: absolute;
     top: 0;
     left: 50%;
@@ -42,8 +40,8 @@
     background: #000;
 }
 
-.inputСontainer input:focus~label,
-.inputContainer input:valid~label {
+.inputСontainer input:focus~h2,
+.inputContainer input:valid~h2 {
     top: -12px;
     font-size: 48px;
     opacity: 0;
