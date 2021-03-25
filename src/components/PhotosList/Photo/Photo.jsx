@@ -9,24 +9,31 @@ const Photo = (props) => {
   const [inFavList, setInFavList] = useState(false);
 
   const toFavotiresFunc = (id) => {
-    let FavArr = JSON.parse(localStorage.getItem('Favorites'));
-    if (FavArr.includes(id)) {
-      FavArr = FavArr.filter((val) => val !== id);
-      localStorage.setItem('Favorites', JSON.stringify(FavArr));
-      setInFavList(false);
+    let FavArr = null;
+    if (localStorage.getItem('Favorites')) {
+      FavArr = JSON.parse(localStorage.getItem('Favorites'));
+      if (FavArr.includes(id)) {
+        FavArr = FavArr.filter((val) => val !== id);
+        localStorage.setItem('Favorites', JSON.stringify(FavArr));
+        setInFavList(false);
+      } else {
+        FavArr = [...FavArr, id];
+        localStorage.setItem('Favorites', JSON.stringify(FavArr));
+        setInFavList(true);
+      }
     } else {
-      FavArr = [...FavArr, id];
-      localStorage.setItem('Favorites', JSON.stringify(FavArr));
-      setInFavList(true);
+      localStorage.setItem('Favorites', JSON.stringify([id]));
     }
   };
 
   useEffect(() => {
-    const checkFav = (id) => {
-      const FavArr = JSON.parse(localStorage.getItem('Favorites'));
-      return setInFavList(FavArr.includes(id));
-    };
-    checkFav(item.id);
+    if (localStorage.getItem('Favorites')) {
+      const checkFav = (id) => {
+        const FavArr = JSON.parse(localStorage.getItem('Favorites'));
+        return setInFavList(FavArr.includes(id));
+      };
+      checkFav(item.id);
+    }
   }, [inFavList]);
 
   return (

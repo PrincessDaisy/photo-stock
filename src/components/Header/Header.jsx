@@ -11,6 +11,7 @@ import HeaderSearch from './HeaderSearch/HeaderSearch';
 import PhotosAPI from '../../api';
 import HeaderLinkItem from './HeaderLinkItem/HeaderLinkItem';
 import HeaderTopic from './HeaderTopic/HeaderTopic';
+import SearchHistory from '../SearchHistory/SearchHistory';
 
 const Header = withRouter((props) => {
   const { setSearchVal, location } = props;
@@ -80,6 +81,7 @@ const Header = withRouter((props) => {
           </div>
         </>
         )}
+      {location.pathname === '/history' && <SearchHistory />}
     </div>
   );
 });

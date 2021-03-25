@@ -30,6 +30,7 @@ const MainContent = () => {
   } = useInfiniteQuery(['projects', searchVal], ({ pageParam = 1 }) => fetchPhotosList(searchVal, pageParam), {
     getNextPageParam: (lastPage, pages) => pages.length + 1,
   });
+
   const handleScroll = () => {
     if (window.innerHeight
         + document.documentElement.scrollTop === document.documentElement.offsetHeight
@@ -51,6 +52,11 @@ const MainContent = () => {
         {!!isLoading && <Preloader />}
       </Route>
       <Route path="/photo-page/:id" component={PhotoPage} />
+      <Route path="/history">
+        {!!isSuccessPhotosListFetch
+          && <PhotosList photosList={photosListData.pages.flat()} />}
+        {!!isLoading && <Preloader />}
+      </Route>
     </>
   );
 };

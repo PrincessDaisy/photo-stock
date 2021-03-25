@@ -2,10 +2,13 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import PhotosAPI from '../../api';
 import PhotosList from '../PhotosList/PhotosList';
-// import style from './Favorites.module.css';
+import style from './Favorites.module.css';
 
 const Favorites = () => {
-  const favoritesList = JSON.parse(localStorage.getItem('Favorites'));
+  let favoritesList = null;
+  if (localStorage.getItem('Favorites')) {
+    favoritesList = JSON.parse(localStorage.getItem('Favorites'));
+  }
   const getListFromFavorites = (arr) => {
     const fetchedData = [];
     const fetchPhoto = async (itemId) => {
@@ -22,7 +25,10 @@ const Favorites = () => {
   };
   return (
     <>
-      <PhotosList photosList={getListFromFavorites(favoritesList)} />
+      <div className="container">
+        <h2 className={style.heading}>Избранное</h2>
+        {!!favoritesList && <PhotosList photosList={getListFromFavorites(favoritesList)} />}
+      </div>
     </>
   );
 };
