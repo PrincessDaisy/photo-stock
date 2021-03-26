@@ -18,11 +18,12 @@ time, mark, audio, video {
     text-decoration: none;
     color: #fff;
     font-family: 'SFUIDisplayLight';
+    outline: none;
 }
 
 /* make sure to set some focus styles for accessibility */
-:focus {
-    outline: 0;
+:focus, :active, :focus {
+    outline: none
 }
 
 /* HTML5 display-role reset for older browsers */

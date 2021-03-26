@@ -46,15 +46,15 @@ const MainContent = () => {
       <Route path="/favorites">
         <Favorites />
       </Route>
-      <Route path="/home">
+      <Route path="/home" activeClassName="active-link">
         {!!isSuccessPhotosListFetch
           && <PhotosList photosList={photosListData.pages.flat()} />}
         {!!isLoading && <Preloader />}
       </Route>
-      <Route path="/photo-page/:id" component={PhotoPage} />
+      <Route path="/photo-page/:id" component={PhotoPage} activeClassName="active-link" />
       <Route path="/history">
         {!!isSuccessPhotosListFetch
-          && <PhotosList photosList={photosListData.pages.flat()} />}
+          && <PhotosList photosList={photosListData.pages.flat()} activeClassName="active-link" />}
         {!!isLoading && <Preloader />}
       </Route>
     </>

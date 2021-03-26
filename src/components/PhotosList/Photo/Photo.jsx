@@ -4,12 +4,11 @@ import React, { useEffect, useState } from 'react';
 import style from './Photo.module.css';
 
 const Photo = (props) => {
-  const { item } = props;
-
+  const { item, setRerender } = props;
   const [inFavList, setInFavList] = useState(false);
 
   const toFavotiresFunc = (id) => {
-    let FavArr = null;
+    let FavArr;
     if (localStorage.getItem('Favorites')) {
       FavArr = JSON.parse(localStorage.getItem('Favorites'));
       if (FavArr.includes(id)) {
@@ -26,6 +25,14 @@ const Photo = (props) => {
     }
   };
 
+  const toFavFunc = () => {
+    toFavotiresFunc(item.id);
+    // console.log(toFavotiresFunc);
+    if (setRerender) {
+      setRerender(true);
+    }
+  };
+
   useEffect(() => {
     if (localStorage.getItem('Favorites')) {
       const checkFav = (id) => {
@@ -39,7 +46,7 @@ const Photo = (props) => {
   return (
     <div key={item.id} className={style.imgWrap}>
       <img
-        src={item.urls.small}
+        src={item.urls.regular}
         alt={item.alt_description}
         className={style.photoImage}
       />
@@ -65,7 +72,7 @@ const Photo = (props) => {
         </div>
         <div className={style.actionIcons}>
           <div>
-            <button type="button" onClick={() => toFavotiresFunc(item.id)} className={style.toFavorites}>
+            <button type="button" onClick={toFavFunc} className={style.toFavorites}>
               <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" className={style.icon}>
                 <path d="M18.9121 28.7685C17.8354 29.746 16.1779 29.7461 15.1013 28.7544L14.9454 28.6127C7.50795 21.8836 2.64878 17.4777 2.83295 11.981C2.91795 9.57272 4.15045 7.26355 6.14795 5.90355C9.88795 3.35355 14.5063 4.54355 16.9996 7.46188C19.4929 4.54355 24.1113 3.33938 27.8513 5.90355C29.8488 7.26355 31.0813 9.57272 31.1663 11.981C31.3646 17.4777 26.4913 21.8835 19.0538 28.641L18.9121 28.7685Z" fill={inFavList ? 'red' : 'white'} />
               </svg>

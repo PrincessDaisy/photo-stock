@@ -1,10 +1,6 @@
 /* eslint-disable */
-import logo from './logo.svg';
 import './App.css';
-import PhotosAPI from './api';
-import Header from './components/Header/Header';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Favorites from './components/Favorites/Favorites';
+import { HashRouter } from 'react-router-dom';
 import MainContent from './components/MainContent/MainContent';
 import { QueryClient, QueryClientProvider} from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -14,11 +10,11 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <HashRouter>
           <div className="App">
             <MainContent />
           </div>
-        </BrowserRouter>
+        </HashRouter>
         <ReactQueryDevtools initialIsOpen={false}/>
       </QueryClientProvider>
     </>

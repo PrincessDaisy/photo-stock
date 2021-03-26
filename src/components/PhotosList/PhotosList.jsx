@@ -6,13 +6,17 @@ import style from './PhotosList.module.css';
 
 const PhotosList = withRouter((props) => {
   const [dir, setDir] = useState(style.dirRow);
+  const [colWidth, setColWidth] = useState('col-md-4');
+  const { setRerender } = props;
 
   const changeDirRow = () => {
     setDir(style.dirRow);
+    setColWidth('col-md-4');
   };
 
   const changeDirCol = () => {
     setDir(style.dirCol);
+    setColWidth('col-md-6');
   };
 
   const { photosList: photosArray, location } = props;
@@ -39,29 +43,29 @@ const PhotosList = withRouter((props) => {
       </div>
       )}
       <div className={dir}>
-        <div className="col-md-4 p-0">
+        <div className={`${colWidth} p-0`}>
           {!!photosArray
               && photosArray.map((item, index) => {
                 if (index % 3 === 2) {
-                  return <Photo item={item} />;
+                  return <Photo item={item} setRerender={setRerender} />;
                 }
                 return '';
               })}
         </div>
-        <div className="col-md-4 p-0">
+        <div className={`${colWidth} p-0`}>
           {!!photosArray
             && photosArray.map((item, index) => {
               if (index % 3 === 1) {
-                return <Photo item={item} />;
+                return <Photo item={item} setRerender={setRerender} />;
               }
               return '';
             })}
         </div>
-        <div className="col-md-4 p-0" style={{ marginRight: '-10px' }}>
+        <div className={`${colWidth} p-0`} style={{ marginRight: '-10px' }}>
           {!!photosArray
             && photosArray.map((item, index) => {
               if (index % 3 === 0) {
-                return <Photo item={item} className="mr-0" />;
+                return <Photo item={item} className="mr-0" setRerender={setRerender} />;
               }
               return '';
             })}

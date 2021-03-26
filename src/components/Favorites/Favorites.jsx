@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import PhotosAPI from '../../api';
 import PhotosList from '../PhotosList/PhotosList';
@@ -6,6 +6,8 @@ import style from './Favorites.module.css';
 
 const Favorites = () => {
   let favoritesList = null;
+  // eslint-disable-next-line no-unused-vars
+  const [rerender, setRerender] = useState(false);
   if (localStorage.getItem('Favorites')) {
     favoritesList = JSON.parse(localStorage.getItem('Favorites'));
   }
@@ -27,7 +29,13 @@ const Favorites = () => {
     <>
       <div className="container">
         <h2 className={style.heading}>Избранное</h2>
-        {!!favoritesList && <PhotosList photosList={getListFromFavorites(favoritesList)} />}
+        {!!favoritesList
+        && (
+        <PhotosList
+          photosList={getListFromFavorites(favoritesList)}
+          setRerender={setRerender}
+        />
+        )}
       </div>
     </>
   );
