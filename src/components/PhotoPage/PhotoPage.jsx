@@ -7,12 +7,19 @@ import donwload from '../../assets/icons/download_photo_page.png';
 import PhotosList from '../PhotosList/PhotosList';
 
 const PhotoPage = (props) => {
-  console.log(props);
   const { match: { params: { id: itemId } } } = props;
+
+  const [refresh, setRefresh] = useState(true);
+
+  useEffect(() => {
+    setRefresh(!refresh);
+  }, []);
 
   const [className, setClassName] = useState(style.imgRegular);
 
   const [inFavList, setInFavList] = useState(false);
+
+  // setInFavList(true);
 
   const toFavotiresFunc = (id) => {
     let FavArr;
@@ -67,7 +74,7 @@ const PhotoPage = (props) => {
     },
   );
 
-  if (photoFetchSuccess && collectionsFetchSuccess) {
+  if (photoFetchSuccess && collectionsFetchSuccess && !refresh) {
     return (
       <>
         <div className="container p-0">

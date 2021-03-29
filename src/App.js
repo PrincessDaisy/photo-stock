@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter basename="/photo-stock">
           <div className="App">
             <MainContent />
           </div>
