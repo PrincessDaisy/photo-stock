@@ -26,19 +26,19 @@ const MainContent = () => {
     data: photosListData,
     isSuccess: isSuccessPhotosListFetch,
     isLoading,
-    fetchNextPage,
+    // fetchNextPage,
   } = useInfiniteQuery(['projects', searchVal], ({ pageParam = 1 }) => fetchPhotosList(searchVal, pageParam), {
     getNextPageParam: (lastPage, pages) => pages.length + 1,
   });
 
-  const handleScroll = () => {
-    if (window.innerHeight
-        + document.documentElement.scrollTop === document.documentElement.offsetHeight
-    ) {
-      fetchNextPage();
-    }
-  };
-  window.addEventListener('scroll', handleScroll);
+  // const handleScroll = () => {
+  //   if (window.innerHeight
+  //       + document.documentElement.scrollTop === document.documentElement.offsetHeight
+  //   ) {
+  //     fetchNextPage();
+  //   }
+  // };
+  // window.addEventListener('scroll', handleScroll);
 
   return (
     <>
@@ -46,15 +46,15 @@ const MainContent = () => {
       <Route path="/favorites">
         <Favorites />
       </Route>
-      <Route path="/home" activeClassName="active-link">
+      <Route path="/home">
         {!!isSuccessPhotosListFetch
           && <PhotosList photosList={photosListData.pages.flat()} />}
         {!!isLoading && <Preloader />}
       </Route>
-      <Route path="/photo-page/:id" component={PhotoPage} activeClassName="active-link" />
+      <Route path="/photo/:id" component={PhotoPage} />
       <Route path="/history">
         {!!isSuccessPhotosListFetch
-          && <PhotosList photosList={photosListData.pages.flat()} activeClassName="active-link" />}
+          && <PhotosList photosList={photosListData.pages.flat()} />}
         {!!isLoading && <Preloader />}
       </Route>
     </>

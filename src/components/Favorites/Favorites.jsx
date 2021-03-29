@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import PhotosAPI from '../../api';
+// eslint-disable-next-line import/no-cycle
 import PhotosList from '../PhotosList/PhotosList';
 import style from './Favorites.module.css';
 
 const Favorites = () => {
-  let favoritesList = null;
-  // eslint-disable-next-line no-unused-vars
-  const [rerender, setRerender] = useState(false);
-  if (localStorage.getItem('Favorites')) {
+  let favoritesList;
+
+  if (JSON.parse(localStorage.getItem('Favorites')).length > 0) {
     favoritesList = JSON.parse(localStorage.getItem('Favorites'));
+  } else if (JSON.parse(localStorage.getItem('Favorites')).length === 0) {
+    return (
+      <>
+        <div className="container">
+          <h2 className={style.heading}>Избранное</h2>
+        </div>
+      </>
+    );
   }
+
   const getListFromFavorites = (arr) => {
     const fetchedData = [];
     const fetchPhoto = async (itemId) => {
@@ -25,17 +34,16 @@ const Favorites = () => {
     });
     return fetchedData;
   };
+
+  const fetchedData = getListFromFavorites(favoritesList);
+
   return (
     <>
       <div className="container">
         <h2 className={style.heading}>Избранное</h2>
-        {!!favoritesList
-        && (
         <PhotosList
-          photosList={getListFromFavorites(favoritesList)}
-          setRerender={setRerender}
+          photosList={fetchedData}
         />
-        )}
       </div>
     </>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { withRouter } from 'react-router';
@@ -7,7 +8,6 @@ import style from './PhotosList.module.css';
 const PhotosList = withRouter((props) => {
   const [dir, setDir] = useState(style.dirRow);
   const [colWidth, setColWidth] = useState('col-md-4');
-  const { setRerender } = props;
 
   const changeDirRow = () => {
     setDir(style.dirRow);
@@ -47,7 +47,7 @@ const PhotosList = withRouter((props) => {
           {!!photosArray
               && photosArray.map((item, index) => {
                 if (index % 3 === 2) {
-                  return <Photo item={item} setRerender={setRerender} />;
+                  return <Photo item={item} key={item.id} />;
                 }
                 return '';
               })}
@@ -56,7 +56,7 @@ const PhotosList = withRouter((props) => {
           {!!photosArray
             && photosArray.map((item, index) => {
               if (index % 3 === 1) {
-                return <Photo item={item} setRerender={setRerender} />;
+                return <Photo item={item} key={item.id} />;
               }
               return '';
             })}
@@ -65,7 +65,7 @@ const PhotosList = withRouter((props) => {
           {!!photosArray
             && photosArray.map((item, index) => {
               if (index % 3 === 0) {
-                return <Photo item={item} className="mr-0" setRerender={setRerender} />;
+                return <Photo item={item} className="mr-0" key={item.id} />;
               }
               return '';
             })}

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import './App.css';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import MainContent from './components/MainContent/MainContent';
 import { QueryClient, QueryClientProvider} from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -10,11 +10,11 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <HashRouter>
+        <BrowserRouter>
           <div className="App">
             <MainContent />
           </div>
-        </HashRouter>
+        </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false}/>
       </QueryClientProvider>
     </>

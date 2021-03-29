@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import style from './Photo.module.css';
 
 const Photo = (props) => {
-  const { item, setRerender } = props;
+  const { item } = props;
   const [inFavList, setInFavList] = useState(false);
 
   const toFavotiresFunc = (id) => {
@@ -25,14 +25,6 @@ const Photo = (props) => {
     }
   };
 
-  const toFavFunc = () => {
-    toFavotiresFunc(item.id);
-    // console.log(toFavotiresFunc);
-    if (setRerender) {
-      setRerender(true);
-    }
-  };
-
   useEffect(() => {
     if (localStorage.getItem('Favorites')) {
       const checkFav = (id) => {
@@ -42,7 +34,6 @@ const Photo = (props) => {
       checkFav(item.id);
     }
   }, [inFavList]);
-
   return (
     <div key={item.id} className={style.imgWrap}>
       <img
@@ -58,28 +49,28 @@ const Photo = (props) => {
           <div>
             <div>{item.user.name}</div>
             {!!item.user.instagram_username
-                && (
-                <a
-                  href={`https://instagram.com/${item.user.instagram_username}`}
-                  rel="noreferrer"
-                  target="_blank"
-                  className={style.link}
-                >
-                  {`@${item.user.instagram_username}`}
-                </a>
-                )}
+                  && (
+                  <a
+                    href={`https://instagram.com/${item.user.instagram_username}`}
+                    rel="noreferrer"
+                    target="_blank"
+                    className={style.link}
+                  >
+                    {`@${item.user.instagram_username}`}
+                  </a>
+                  )}
           </div>
         </div>
         <div className={style.actionIcons}>
           <div>
-            <button type="button" onClick={toFavFunc} className={style.toFavorites}>
+            <button type="button" onClick={() => { toFavotiresFunc(item.id); }} className={style.toFavorites}>
               <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" className={style.icon}>
                 <path d="M18.9121 28.7685C17.8354 29.746 16.1779 29.7461 15.1013 28.7544L14.9454 28.6127C7.50795 21.8836 2.64878 17.4777 2.83295 11.981C2.91795 9.57272 4.15045 7.26355 6.14795 5.90355C9.88795 3.35355 14.5063 4.54355 16.9996 7.46188C19.4929 4.54355 24.1113 3.33938 27.8513 5.90355C29.8488 7.26355 31.0813 9.57272 31.1663 11.981C31.3646 17.4777 26.4913 21.8835 19.0538 28.641L18.9121 28.7685Z" fill={inFavList ? 'red' : 'white'} />
               </svg>
             </button>
           </div>
           <div>
-            <a href={`/photo-page/${item.id}`}>
+            <a href={`/photo/${item.id}`}>
               <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg" className={style.icon}>
                 <path fillRule="evenodd" clipRule="evenodd" d="M21.5833 4.5C21.5833 3.67157 22.2736 3 23.125 3H32.375C33.2264 3 33.9167 3.67157 33.9167 4.5V13.5C33.9167 14.3284 33.2264 15 32.375 15C31.5236 15 30.8333 14.3284 30.8333 13.5V6H23.125C22.2736 6 21.5833 5.32843 21.5833 4.5Z" fill="white" />
                 <path fillRule="evenodd" clipRule="evenodd" d="M4.62499 21C5.47643 21 6.16666 21.6716 6.16666 22.5V30H13.875C14.7264 30 15.4167 30.6716 15.4167 31.5C15.4167 32.3284 14.7264 33 13.875 33H4.62499C3.77356 33 3.08333 32.3284 3.08333 31.5V22.5C3.08333 21.6716 3.77356 21 4.62499 21Z" fill="white" />
