@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/photo-stock/static/css/main.1c136a05.chunk.css",
-    "main.js": "/photo-stock/static/js/main.1a2d50b6.chunk.js",
-    "main.js.map": "/photo-stock/static/js/main.1a2d50b6.chunk.js.map",
-    "runtime-main.js": "/photo-stock/static/js/runtime-main.3f7f65b0.js",
-    "runtime-main.js.map": "/photo-stock/static/js/runtime-main.3f7f65b0.js.map",
-    "static/js/2.c1f93008.chunk.js": "/photo-stock/static/js/2.c1f93008.chunk.js",
-    "static/js/2.c1f93008.chunk.js.map": "/photo-stock/static/js/2.c1f93008.chunk.js.map",
-    "static/js/3.c16a1298.chunk.js": "/photo-stock/static/js/3.c16a1298.chunk.js",
-    "static/js/3.c16a1298.chunk.js.map": "/photo-stock/static/js/3.c16a1298.chunk.js.map",
+    "main.css": "/photo-stock/static/css/main.dc798157.chunk.css",
+    "main.js": "/photo-stock/static/js/main.1fed6bdf.chunk.js",
+    "main.js.map": "/photo-stock/static/js/main.1fed6bdf.chunk.js.map",
+    "runtime-main.js": "/photo-stock/static/js/runtime-main.bcc9f9d9.js",
+    "runtime-main.js.map": "/photo-stock/static/js/runtime-main.bcc9f9d9.js.map",
+    "static/js/2.bfc55f6c.chunk.js": "/photo-stock/static/js/2.bfc55f6c.chunk.js",
+    "static/js/2.bfc55f6c.chunk.js.map": "/photo-stock/static/js/2.bfc55f6c.chunk.js.map",
+    "static/js/3.984db374.chunk.js": "/photo-stock/static/js/3.984db374.chunk.js",
+    "static/js/3.984db374.chunk.js.map": "/photo-stock/static/js/3.984db374.chunk.js.map",
     "index.html": "/photo-stock/index.html",
-    "static/css/main.1c136a05.chunk.css.map": "/photo-stock/static/css/main.1c136a05.chunk.css.map",
-    "static/js/2.c1f93008.chunk.js.LICENSE.txt": "/photo-stock/static/js/2.c1f93008.chunk.js.LICENSE.txt",
+    "static/css/main.dc798157.chunk.css.map": "/photo-stock/static/css/main.dc798157.chunk.css.map",
+    "static/js/2.bfc55f6c.chunk.js.LICENSE.txt": "/photo-stock/static/js/2.bfc55f6c.chunk.js.LICENSE.txt",
     "static/media/Preloader.e1658f1b.gif": "/photo-stock/static/media/Preloader.e1658f1b.gif",
     "static/media/index.css": "/photo-stock/static/media/sf-ui-display-medium.32f93875.otf"
   },
   "entrypoints": [
-    "static/js/runtime-main.3f7f65b0.js",
-    "static/js/2.c1f93008.chunk.js",
-    "static/css/main.1c136a05.chunk.css",
-    "static/js/main.1a2d50b6.chunk.js"
+    "static/js/runtime-main.bcc9f9d9.js",
+    "static/js/2.bfc55f6c.chunk.js",
+    "static/css/main.dc798157.chunk.css",
+    "static/js/main.1fed6bdf.chunk.js"
   ]
 }
