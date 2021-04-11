@@ -6,6 +6,7 @@ import style from './Photo.module.css';
 
 const Photo = (props) => {
   const { item } = props;
+
   const [inFavList, setInFavList] = useState(false);
 
   const toFavotiresFunc = (id) => {
@@ -74,7 +75,6 @@ const Photo = (props) => {
             <NavLink
               to={{
                 pathname: `/photo/${item.id}`,
-                state: { refresh: true },
               }}
             >
               <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg" className={style.icon}>

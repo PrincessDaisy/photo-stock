@@ -50,6 +50,8 @@
 .imgScaled{
     width: 40%;
     border-radius: 8px;
+    display: block;
+    margin: auto;
 }
 .imgBackground {
     position: absolute;
@@ -98,6 +100,7 @@
 .tagsTop > h3{
     font-size: 24px;
     color: #fff;
+    text-align: center;
 }
 .tagsBlock {
     display: flex;

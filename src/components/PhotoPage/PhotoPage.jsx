@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
@@ -9,17 +10,9 @@ import PhotosList from '../PhotosList/PhotosList';
 const PhotoPage = (props) => {
   const { match: { params: { id: itemId } } } = props;
 
-  const [refresh, setRefresh] = useState(true);
-
-  useEffect(() => {
-    setRefresh(!refresh);
-  }, []);
-
   const [className, setClassName] = useState(style.imgRegular);
 
   const [inFavList, setInFavList] = useState(false);
-
-  // setInFavList(true);
 
   const toFavotiresFunc = (id) => {
     let FavArr;
@@ -59,22 +52,33 @@ const PhotoPage = (props) => {
     return data;
   };
 
-  const { data: photoData, isSuccess: photoFetchSuccess } = useQuery(['photo'], () => fetchPhoto(itemId));
+  let collectionsId;
+
+  const {
+    data: photoData,
+    isSuccess: photoFetchSuccess,
+  } = useQuery([itemId], () => fetchPhoto(itemId));
+
+  if (photoFetchSuccess) {
+    collectionsId = photoData.related_collections.results[0].id;
+  }
 
   const { data: collectionsListData, isSuccess: collectionsFetchSuccess } = useQuery(
-    ['collectionsList'],
-    () => fetchCollection(photoData.related_collections.results[0].id),
+    [collectionsId],
+    () => fetchCollection(collectionsId),
     {
-      enabled: !!photoData,
+      enabled: !!collectionsId,
       onSuccess: () => {
         if (photoData.width < photoData.height) {
           setClassName(style.imgScaled);
+        } else {
+          setClassName(style.imgRegular);
         }
       },
     },
   );
 
-  if (photoFetchSuccess && collectionsFetchSuccess && !refresh) {
+  if (photoFetchSuccess && collectionsFetchSuccess) {
     return (
       <>
         <div className="container p-0">
@@ -170,7 +174,10 @@ const PhotoPage = (props) => {
               <h3 className={style.relatedColsHeading}>Похожие фотографии</h3>
               <button type="button">show more</button>
             </div>
-            {!!collectionsFetchSuccess && <PhotosList photosList={collectionsListData} /> }
+            {!!collectionsFetchSuccess
+            && (
+              <PhotosList photosList={collectionsListData} />
+            )}
           </div>
         </div>
       </>

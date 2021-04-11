@@ -11,9 +11,7 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter basename="/photo-stock">
-          <div className="App">
-            <MainContent />
-          </div>
+          <MainContent />
         </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false}/>
       </QueryClientProvider>

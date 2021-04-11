@@ -10,7 +10,7 @@ const SearchHistory = () => {
   return (
     <>
       <div className="container p-0">
-        <h2>Ваши запросы</h2>
+        <h2 className={style.heading}>Ваши запросы</h2>
         <div className={style.topicWrapper}>
           {SearchHistoryArr
         && SearchHistoryArr.map((item) => <HeaderTopic title={item} key={item} />)}

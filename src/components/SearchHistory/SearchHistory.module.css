@@ -5,3 +5,6 @@
     margin-top: 24px;
     flex-wrap: wrap;
 }
+.heading {
+    text-align: center;
+}

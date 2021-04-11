@@ -1,7 +1,6 @@
 # Getting Started with Create React App
 
-Still not completed
-https://princessdaisy.github.io/photo-stock/home (work in progress, don't swear)
+Still not completed (work in progress, don't swear)
 
 ## Available Scripts
 

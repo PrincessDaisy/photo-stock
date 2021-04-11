@@ -46,7 +46,7 @@ const PhotosList = withRouter((props) => {
         <div className={`${colWidth} p-0`}>
           {!!photosArray
               && photosArray.map((item, index) => {
-                if (index % 3 === 2) {
+                if (index % 3 === 1 || index === 1) {
                   return <Photo item={item} key={item.id} />;
                 }
                 return '';
@@ -55,7 +55,7 @@ const PhotosList = withRouter((props) => {
         <div className={`${colWidth} p-0`}>
           {!!photosArray
             && photosArray.map((item, index) => {
-              if (index % 3 === 1) {
+              if (index % 3 === 2 || index === 2) {
                 return <Photo item={item} key={item.id} />;
               }
               return '';
