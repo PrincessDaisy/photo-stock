@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import style from './Photo.module.css';
+import style from './PhotosList.module.css';
 
 const Photo = (props) => {
   const { item } = props;

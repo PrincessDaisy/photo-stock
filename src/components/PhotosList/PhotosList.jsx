@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { withRouter } from 'react-router';
-import Photo from './Photo/Photo';
+import Photo from './Photo';
 import style from './PhotosList.module.css';
 
 const PhotosList = withRouter((props) => {
