@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderTopic from '../Header/HeaderTopic/HeaderTopic';
+import HeaderTopic from '../Header/HeaderTopic';
 import style from './SearchHistory.module.css';
 
 const SearchHistory = () => {

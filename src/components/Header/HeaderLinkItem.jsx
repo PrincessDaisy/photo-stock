@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import style from './HeaderLinkItem.module.css';
+import style from './Header.module.css';
 
 const HeaderLinkItem = (props) => {
   const { data: { link, imgSrc, text }, className } = props;

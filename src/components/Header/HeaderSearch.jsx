@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { React } from 'react';
 import { Formik, Form } from 'formik';
-import HeaderInput from './HeaderInput/HeaderInput';
+import HeaderInput from './HeaderInput';
 
 const HeaderSearch = (props) => {
   const { setSearchVal } = props;

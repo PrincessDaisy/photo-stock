@@ -9,8 +9,8 @@ import searchHistory from '../../assets/icons/search-history.png';
 import search from '../../assets/icons/search.png';
 import HeaderSearch from './HeaderSearch/HeaderSearch';
 import PhotosAPI from '../../api';
-import HeaderLinkItem from './HeaderLinkItem/HeaderLinkItem';
-import HeaderTopic from './HeaderTopic/HeaderTopic';
+import HeaderLinkItem from './HeaderLinkItem';
+import HeaderTopic from './HeaderTopic';
 import SearchHistory from '../SearchHistory/SearchHistory';
 
 const Header = withRouter((props) => {

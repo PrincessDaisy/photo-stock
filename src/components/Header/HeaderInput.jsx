@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Field } from 'formik';
 import React from 'react';
-import style from './HeaderInput.module.css';
+import style from './Header.module.css';
 
 const HeaderInput = (props) => {
   const { name } = props;
