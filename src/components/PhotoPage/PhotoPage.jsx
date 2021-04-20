@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
-import PhotosAPI from '../../api';
+import { PhotosAPI } from '../../api';
 import style from './PhotoPage.module.css';
 import donwload from '../../assets/icons/download_photo_page.png';
 import PhotosList from '../PhotosList/PhotosList';

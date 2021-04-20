@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { useQuery } from 'react-query';
@@ -7,11 +8,11 @@ import logo from '../../assets/icons/logo.png';
 import favorites from '../../assets/icons/favorites.png';
 import searchHistory from '../../assets/icons/search-history.png';
 import search from '../../assets/icons/search.png';
-import HeaderSearch from './HeaderSearch/HeaderSearch';
-import PhotosAPI from '../../api';
+import HeaderSearch from './HeaderSearch';
+import { PhotosAPI } from '../../api';
 import HeaderLinkItem from './HeaderLinkItem';
 import HeaderTopic from './HeaderTopic';
-import SearchHistory from '../SearchHistory/SearchHistory';
+import { SearchHistory } from '../SearchHistory';
 
 const Header = withRouter((props) => {
   const { setSearchVal, location } = props;

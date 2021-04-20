@@ -1,7 +1,7 @@
 /* eslint-disable */
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import MainContent from './components/MainContent/MainContent';
+import { MainContent } from './components/MainContent';
 import { QueryClient, QueryClientProvider} from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 

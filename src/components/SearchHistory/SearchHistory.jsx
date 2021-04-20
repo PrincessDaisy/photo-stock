@@ -1,5 +1,6 @@
+/* eslint-disable import/no-cycle */
 import React from 'react';
-import HeaderTopic from '../Header/HeaderTopic';
+import { HeaderTopic } from '../Header';
 import style from './SearchHistory.module.css';
 
 const SearchHistory = () => {

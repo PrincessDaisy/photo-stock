@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import PhotosAPI from '../../api';
-// eslint-disable-next-line import/no-cycle
+import { PhotosAPI } from '../../api';
 import PhotosList from '../PhotosList/PhotosList';
 import style from './Favorites.module.css';
 
