@@ -114,6 +114,9 @@
 .icon:hover {
     transform: scale(1.2);
 }
+.thirdCol {
+    margin-right: -10px;
+}
 @media (max-width: 991px) { 
     .dirControl {
         display: none;
@@ -129,6 +132,9 @@
         margin-right: 0px!important;
     }
     .imgWrap {
+        margin-right: 0;
+    }
+    .thirdCol {
         margin-right: 0;
     }
 }

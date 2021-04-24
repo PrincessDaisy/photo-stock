@@ -61,7 +61,7 @@ const PhotosList = withRouter((props) => {
               return '';
             })}
         </div>
-        <div className={`${colWidth} p-0`} style={{ marginRight: '-10px' }}>
+        <div className={`${colWidth} p-0 ${style.thirdCol}`}>
           {!!photosArray
             && photosArray.map((item, index) => {
               if (index % 3 === 0) {
