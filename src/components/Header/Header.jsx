@@ -74,7 +74,7 @@ const Header = withRouter((props) => {
               <HeaderSearch setSearchVal={setSearchVal} />
             </div>
           </div>
-          <div className="container">
+          <div className={`container ${style.shadow}`}>
             <div className={style.topicWrapper}>
               {!!isSuccessTopicsListFetch
               && topicsListData.map((item) => <HeaderTopic title={item.title} key={item.id} />)}

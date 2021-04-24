@@ -14,10 +14,6 @@
 .topicBlock {
     display: flex;
 }
-.topicItem {
-    margin: 5px auto;
-    font-size: 16px;
-}
 .headerLinksWrap {
     display: flex;
 }
@@ -29,8 +25,13 @@
     display: flex;
     justify-content: center;
     position: relative;
+    width: 1400px;
 }
-.topicWrapper:after {
+.shadow {
+    position: relative;
+    overflow-x: hidden;
+}
+.shadow:after {
     content: '';
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 1) 80%);
     height: 100%;
@@ -62,7 +63,7 @@
     padding-top: 70px;
 }
 
-.inputСontainer h2 {
+.inputСontainer label {
     position: absolute;
     top: 0;
     left: 50%;
@@ -91,8 +92,7 @@
     background: #000;
 }
 
-.inputСontainer input:focus~h2,
-.inputContainer input:valid~h2 {
+.inputСontainer input:focus~label{
     top: -12px;
     font-size: 48px;
     opacity: 0;
@@ -138,10 +138,45 @@ input:-webkit-autofill {
     color: #fff;
     position: relative;
 }
-.headerLink>a:hover {
-    text-decoration: none;
-    color: #fff;   
-}
 .linkText {
     margin-left: 12px;
+}
+a[class="active"]:after {
+    content: '';
+    height: 2px;
+    width: 80%;
+    left: 0;
+    bottom: -10px;
+    z-index: 2;
+    position: absolute;
+    background-color: #fff;
+}
+@media (max-width: 991px) {
+    .linkText {
+        display: none;
+    }
+    .headerLink {
+        margin-left: 22px;
+    }
+    a[class="active"]:after {
+        display: none;
+    }
+    .headerLinksWrap {
+        padding: 0 18px 0 18px;
+    }
+    .box {
+        margin-top: 20px;
+    }
+    .inputСontainer {
+        padding-top: 0px;
+    }
+    .inputСontainer label {
+        font-size: 36px;
+    }
+    .topicWrapper {
+        justify-content: left;
+    }
+    .topicItem {
+        margin-bottom: 0;
+    }
 }

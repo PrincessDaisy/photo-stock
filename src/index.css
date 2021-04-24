@@ -10,17 +10,6 @@ code {
     monospace;
 }
 
-a[class="active"]:after {
-  content: '';
-  height: 2px;
-  width: 80%;
-  left: 0;
-  bottom: -10px;
-  z-index: 2;
-  position: absolute;
-  background-color: #fff;
-}
-
 @font-face {
   font-family: 'SFUIDisplayMedium';
   src: local('SFUIDisplayMedium'), url('./assets/fonts/sf-ui-display-medium.otf') format('opentype');

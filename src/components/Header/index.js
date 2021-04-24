@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import Header from './Header';
 import HeaderInput from './HeaderInput';
 import HeaderLinkItem from './HeaderLinkItem';

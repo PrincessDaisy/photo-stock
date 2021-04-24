@@ -7,16 +7,16 @@ import style from './PhotosList.module.css';
 
 const PhotosList = withRouter((props) => {
   const [dir, setDir] = useState(style.dirRow);
-  const [colWidth, setColWidth] = useState('col-md-4');
+  const [colWidth, setColWidth] = useState('col-lg-4 col-md-6');
 
   const changeDirRow = () => {
     setDir(style.dirRow);
-    setColWidth('col-md-4');
+    setColWidth('col-lg-4 col-md-8');
   };
 
   const changeDirCol = () => {
     setDir(style.dirCol);
-    setColWidth('col-md-6');
+    setColWidth('col-lg-6 col-md-8');
   };
 
   const { photosList: photosArray, location } = props;
@@ -42,7 +42,7 @@ const PhotosList = withRouter((props) => {
         </button>
       </div>
       )}
-      <div className={dir}>
+      <div className={`${dir} row`}>
         <div className={`${colWidth} p-0`}>
           {!!photosArray
               && photosArray.map((item, index) => {
