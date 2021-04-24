@@ -20,7 +20,9 @@ time, mark, audio, video {
     font-family: 'SFUIDisplayLight';
     outline: none;
 }
-
+html {
+    overflow-x: hidden;
+}
 /* make sure to set some focus styles for accessibility */
 :focus, :active, :focus {
     outline: none

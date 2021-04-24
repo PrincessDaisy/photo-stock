@@ -36,3 +36,13 @@ a:focus, a:active{outline: none!important}
     transform: rotate(360deg);
   }
 }
+@media (max-width: 992px) {
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  }
+}
