@@ -174,7 +174,7 @@ a[class="active"]:after {
         justify-content: left;
     }
     .topicItem {
-        margin-bottom: 0;
+        margin-bottom: 8px;
     }
 }
 @media (max-width: 575px) {
