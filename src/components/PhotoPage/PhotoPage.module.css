@@ -15,10 +15,6 @@
     border-radius: 8px;
     overflow: hidden;
 }
-.userProfileImg > img {
-    width: 54px;
-    height: 54px;
-}
 .userProfile {
     font-size: 30px;
     line-height: 24px;
@@ -74,13 +70,27 @@
     background: #219653;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    padding: 8px 40px 6px 28px;
+    padding: 0px 40px 0px 28px;
     margin-left: 20px;
     color: #fff;
     font-size: 20px;
+    height: 50px;
+    display: flex;
 }
 .toFav {
     display: flex;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.donwloadLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .downloadIcon {
     margin-right: 10px;
@@ -130,4 +140,102 @@
 .relatedColsHeading {
     font-size: 36px;
     color: #000;
+}
+@media (max-width: 767px) {
+    .imgScaled {
+        width: 100%;
+    }
+    .userName {
+        font-size: 18px;
+        color: #000;
+    }
+    .link {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.301);
+    }
+    .userProfile {
+        line-height: 1;
+        font-weight: bold;
+    }
+    .userProfileImg {
+        width: 50px;
+        height: 50px;
+    }
+    .userProfileImg > img{
+        width: 100%;
+    }
+    .download {
+        padding: 0;
+        width: 50px;
+        justify-content: center;
+    }
+    .downloadIcon {
+        margin-right: 0;
+    }
+    .downloadText {
+        display: none;
+    }
+    .imgBlock {
+        margin-top: 20px;
+    }
+    .imgBackground {
+        display: none;
+    }
+    .imgBlock {
+        box-shadow: none;
+        background-color: none;
+    }
+    .tagsTop > h3 {
+        color: #000;
+        text-align: left;
+        font-size: 18px;
+    }
+    .tagsBlock {
+        justify-content: flex-start;
+    }
+    .tagItem {
+        background: #F2F2F2;
+        margin: 0 10px 10px 0;
+        padding: 7px 9px;
+        font-size: 14px;
+    }
+    .relatedCols {
+        margin-top: 0;
+    }
+    .relatedColsTop {
+        margin-bottom: 24px;
+    }
+    .relatedColsHeading {
+        font-size: 18px;
+        text-align: left;
+    }
+}
+@media (max-width: 575px) {
+    .photoInfo {
+        padding: 32px 15px 0 15px;
+    }
+    .toFav {
+        width: 40px;
+        height: 40px;
+    }
+    .download {
+        width: 40px;
+        height: 40px;
+    }
+    .toFav svg {
+        width: 20px;
+    }
+    .download svg {
+        width: 24px;
+    }
+    .userName {
+        font-size: 16px;
+    }
+    .userProfileImg {
+        width: 40px;
+        height: 40px;
+    }
+    .relatedColsHeading {
+        margin-left: 15px;
+    }
 }

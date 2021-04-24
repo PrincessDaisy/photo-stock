@@ -1,10 +1,8 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { PhotosAPI } from '../../api';
 import style from './PhotoPage.module.css';
-import donwload from '../../assets/icons/download_photo_page.png';
 import PhotosList from '../PhotosList/PhotosList';
 
 const PhotoPage = (props) => {
@@ -109,30 +107,18 @@ const PhotoPage = (props) => {
               </div>
               <div className={style.imgActions}>
                 <button className={style.toFav} type="button" onClick={() => { toFavotiresFunc(itemId); }}>
-                  <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d)">
-                      <rect x="4" y="4" width="49.244" height="49.244" rx="8" fill="white" />
-                    </g>
-                    <path d="M30.5782 38.9207C29.6142 39.796 28.1302 39.796 27.1661 38.9081L27.0266 38.7812C20.3674 32.7562 16.0166 28.8114 16.1815 23.8898C16.2576 21.7335 17.3612 19.666 19.1497 18.4483C22.4983 16.1651 26.6334 17.2306 28.8658 19.8435C31.0983 17.2306 35.2334 16.1524 38.582 18.4483C40.3705 19.666 41.4741 21.7335 41.5502 23.8898C41.7277 28.8114 37.3643 32.7562 30.7051 38.8066L30.5782 38.9207Z" fill={inFavList ? 'red' : '#828282'} />
-                    <defs>
-                      <filter id="filter0_d" x="0" y="0" width="57.244" height="57.244" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                        <feOffset />
-                        <feGaussianBlur stdDeviation="2" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                      </filter>
-                    </defs>
+                  <svg width="26" height="23" viewBox="0 0 26 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.5782 21.9207C13.6142 22.796 12.1302 22.796 11.1661 21.9081L11.0266 21.7812C4.36736 15.7562 0.0166355 11.8114 0.181532 6.88984C0.257637 4.7335 1.36117 2.66596 3.14966 1.44827C6.49832 -0.834911 10.6334 0.230571 12.8658 2.84354C15.0983 0.230571 19.2334 -0.847595 22.582 1.44827C24.3705 2.66596 25.4741 4.7335 25.5502 6.88984C25.7277 11.8114 21.3643 15.7562 14.7051 21.8066L14.5782 21.9207Z" fill={inFavList ? 'red' : '#828282'} />
                   </svg>
                 </button>
                 <div className={style.download}>
-                  <a href={`${photoData.links.download}?force=true`} target="_blank" download rel="noreferrer">
+                  <a href={`${photoData.links.download}?force=true`} target="_blank" download rel="noreferrer" className={style.donwloadLink}>
                     <span className={style.downloadIcon}>
-                      <img src={donwload} alt="" />
+                      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M21.2499 13.4584H23.5024C24.7633 13.4584 25.3866 14.9884 24.4941 15.8809L17.9916 22.3834C17.4391 22.9359 16.5466 22.9359 15.9941 22.3834L9.49159 15.8809C8.59909 14.9884 9.23659 13.4584 10.4974 13.4584H12.7499V6.37502C12.7499 5.59585 13.3874 4.95835 14.1666 4.95835H19.8333C20.6124 4.95835 21.2499 5.59585 21.2499 6.37502V13.4584ZM8.49992 29.0417C7.72075 29.0417 7.08325 28.4042 7.08325 27.625C7.08325 26.8459 7.72075 26.2084 8.49992 26.2084H25.4999C26.2791 26.2084 26.9166 26.8459 26.9166 27.625C26.9166 28.4042 26.2791 29.0417 25.4999 29.0417H8.49992Z" fill="white" />
+                      </svg>
                     </span>
-                    <span>
+                    <span className={style.downloadText}>
                       Download
                     </span>
                   </a>
@@ -172,7 +158,6 @@ const PhotoPage = (props) => {
           <div className={style.relatedCols}>
             <div className={style.relatedColsTop}>
               <h3 className={style.relatedColsHeading}>Похожие фотографии</h3>
-              <button type="button">show more</button>
             </div>
             {!!collectionsFetchSuccess
             && (

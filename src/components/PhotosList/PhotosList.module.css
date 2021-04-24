@@ -120,12 +120,25 @@
     }
     .dirRow {
         margin-top: 48px;
+        margin-left: 0px!important;
+        margin-right: 0px!important;
     }
     .dirCol {
         margin-top: 48px;
+        margin-left: 0px!important;
+        margin-right: 0px!important;
     }
     .imgWrap {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-right: 0;
     }
 }
+@media (max-width: 575px) {
+    .dirRow {
+        margin-left: 15px!important;
+        margin-right: 15px!important;
+    }
+    .dirCol {
+        margin-left: 15px!important;
+        margin-right: 15px!important;
+    }
+} 

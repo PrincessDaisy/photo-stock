@@ -42,7 +42,7 @@ const PhotosList = withRouter((props) => {
         </button>
       </div>
       )}
-      <div className={`${dir} row mr-0 ml-0`}>
+      <div className={`${dir} row mr-md-0 ml-md-0`}>
         <div className={`${colWidth} p-0`}>
           {!!photosArray
               && photosArray.map((item, index) => {

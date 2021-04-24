@@ -161,9 +161,6 @@ a[class="active"]:after {
     a[class="active"]:after {
         display: none;
     }
-    .headerLinksWrap {
-        padding: 0 18px 0 18px;
-    }
     .box {
         margin-top: 20px;
     }
@@ -178,5 +175,10 @@ a[class="active"]:after {
     }
     .topicItem {
         margin-bottom: 0;
+    }
+}
+@media (max-width: 575px) {
+    .headerLinksWrap {
+        padding: 0 18px 0 18px;
     }
 }
